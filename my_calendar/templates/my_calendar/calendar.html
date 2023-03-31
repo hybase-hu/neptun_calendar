@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} Naptár {% endblock title%}
+
+
+{% block content %}
+
+<div class="card bg-dark text-light p-1 mb-3 " width="15rem">
+
+
+    <div class="card-body">
+        <div class="card-title">Óráim</div>
+
+        <p class="p-1">A következő óráim a feltöltött órarend szerint</p>
+    </div>
+    <div class="card-footer">Utolsó feltöltés: {{neptun_user.uploaded_calendar}}</div>
+
+</div>
+<hr>
+
+
+<div class="row text-light">
+    {% for c in data %}
+
+    <h4><span class="badge bg-secondary"><p class="linebreak">{{c.desc}}</p></span></h4>
+    <div class="col-md-3">
+        <p><span class="badge bg-secondary">Kezdés:</span> {{c.start}}</p>
+    </div>
+    <div class="col-md-3">
+        <p><span class="badge bg-secondary">Vége:</span> {{c.end}} | <span class="badge bg-secondary">{{c.get_length}} min</span></p>
+    </div>
+     <div class="col-md-6">
+        <h3><span class="badge bg-primary">{{c.local}}</span></h3>
+    </div>
+
+
+
+
+    {% endfor %}
+</div>
+{% endblock content %}

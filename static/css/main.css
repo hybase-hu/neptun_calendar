@@ -1,0 +1,44 @@
+html {
+    background-color:#222;
+}
+
+body {
+    background-color:#222;
+}
+
+.bg {
+    background-color:#222;
+
+}
+
+
+.linebreak {
+    width:100%;
+    word-break:break-all;
+    word-warp:break-word;
+    white-space:pre-line;
+
+}
+
+.main {
+    min-height:100vh;
+}
+
+.login_card {
+    width:50%;
+    margin:0 auto;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .login_card {
+        width:100% !important;
+    }
+}
+
+._footer {
+    background-color:#121212;
+    font-size:0.7rem;
+    padding:5rem;
+
+}

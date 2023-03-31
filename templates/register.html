@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to Neptun Calendar</title>
+    <!-- CSS only -->
+    <link href="{% static 'css/bootstrapp.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{% static 'img/favico.ico' %}">
+</head>
+<body style="min-height:100vh">
+<div class="container-fluid" style="display:flex;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+    <div class="card login_card">
+      <img src="{% static 'img/login.jpg' %}" class="card-img-top" alt="Login Picture" style="max-height:19rem;object-fit:cover">
+        <div class="card-header">
+            {% include 'error.html' %}
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">Neptun Calendar regisztráció</h5>
+          <form class="" method="post" action="">
+                {% csrf_token %}
+
+                <input class="form-control form-control-lg mt-3" id="username" name="username" type="text" placeholder="Felhasználónév" >
+                <input class="form-control form-control-lg mt-3" type="password" id="password" name="password" placeholder="Jelszó" >
+                <input class="form-control form-control-lg mt-3" type="password" id="password2" name="password2" placeholder="Jelszó megerősítése" >
+                <input type="submit" class="btn btn-primary mt-3 w-100" value="Regisztráció">
+                <p class="text-center p-3">
+                    <a href="{% url 'calendar:register' %}">Regisztráció, új fiók létrehozása</a>
+                </p>
+                <p class="text-center p-3">Az adatok egy saját raspberry pi szerveren tárolódnak, a szerver nem elérhetőségért nem vállalok garanciát.</p>
+          </form>
+
+      </div>
+    </div>
+</div>
+</body>
+</html>
