@@ -1,13 +1,13 @@
 html {
-    background-color:#222;
+    background-color:#222 !important;
 }
 
 body {
-    background-color:#222;
+    background-color:#222 !important;
 }
 
 .bg {
-    background-color:#222;
+    background-color:#222 !important;
 
 }
 
@@ -22,7 +22,10 @@ body {
 
 .main {
     min-height:100vh;
+    background-color:#222 !important;
 }
+
+
 
 .login_card {
     width:50%;
@@ -30,11 +33,21 @@ body {
 
 }
 
+.card-border {
+    border: 1px solid #444 !important;
+}
+
 @media only screen and (max-width: 900px) {
     .login_card {
         width:100% !important;
     }
 }
+
+.bg_gradient {
+    background: rgb(25,12,24);
+    background: linear-gradient(25deg, rgba(25,12,24,1) 0%, rgba(113,26,113,1) 65%, rgba(20,1,24,1) 100%);
+}
+
 
 ._footer {
     background-color:#121212;
