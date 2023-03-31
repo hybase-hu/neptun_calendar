@@ -14,8 +14,8 @@ from my_calendar.models import NeptunUser, NeptunClass
 
 def login_view(request):
     if request.method == "POST":
-        if "username" in request.POST and "password" in request.POST and len(request.POST['username']) > 5 and \
-                len(request.POST['password']) > 5:
+        if "username" in request.POST and "password" in request.POST and len(request.POST['username']) > 3 and \
+                len(request.POST['password']) > 4:
             username = request.POST['username'].lower()
             password = request.POST['password']
             try:
@@ -36,27 +36,27 @@ def login_view(request):
 
 def register_view(request):
     if request.method == "POST":
-        if "username" in request.POST and "password" in request.POST and len(request.POST['username']) > 5 and \
-                len(request.POST['password']) > 5:
+        if "username" in request.POST and "password" in request.POST and len(request.POST['username']) > 3 and \
+                len(request.POST['password']) > 4:
 
-            if request.POST['password'] != request.POST['password2']:
-                messages.warning(request, "Nem egyezik a jelszó")
-            else:
-                username = request.POST['username'].lower()
-                password = request.POST['password']
-                try:
-                    user = User.objects.create_user(username=username, password=password)
-                    neptun_user = NeptunUser.objects.create(user=user)
-                    neptun_user.save()
+                if request.POST['password'] != request.POST['password2']:
+                    messages.warning(request, "Nem egyezik a jelszó")
+                else:
+                    username = request.POST['username'].lower()
+                    password = request.POST['password']
+                    try:
+                        user = User.objects.create_user(username=username, password=password)
+                        neptun_user = NeptunUser.objects.create(user=user)
+                        neptun_user.save()
 
-                    login(request, user)
-                    return redirect("/")
-                except Exception as e:
-                    messages.warning(request, e)
+                        login(request, user)
+                        return redirect("/")
+                    except Exception as e:
+                        messages.warning(request, e)
 
 
         else:
-            if len(request.POST['password']) < 6:
+            if len(request.POST['password']) < 4:
                 messages.warning(request, "A jelszó legyen legalább 5 karakter, nah")
             messages.warning(request, "Nem kitöltött adatok")
 
