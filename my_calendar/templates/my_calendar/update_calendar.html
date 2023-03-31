@@ -7,27 +7,26 @@
 {% block content %}
 
 
-<div class="container-fluid bg" style="display:flex;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+<div class="container-fluid" style="display:flex;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
     <div class="card login_card">
-      <img src="{% static 'img/login.jpg' %}" class="card-img-top" alt="Login Picture" style="max-height:19rem;object-fit:cover">
-        <div class="card-header">
-            {% include 'error.html' %}
-        </div>
+        <img src="{% static 'img/login.jpg' %}" class="card-img-top" alt="Login Picture" style="max-height:19rem;object-fit:cover">
+
         <div class="card-header">
             <p>A neptun->Naptár->Naptár Export-> Excel Export menüponttal, majd az excelben a mentés másként ->
                 CSV (pontosvesszővel tagolt) formátumot követve a csv feltöltése</p>
         </div>
-      <div class="card-body">
-        <h5 class="card-title">Calendar frissítése</h5>
-          <form class="" method="post" action="" enctype="multipart/form-data">
+        <div class="card-body">
+            <h5 class="card-title">Calendar frissítése</h5>
+            {% include 'error.html' %}
+            <form class="" method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <input class="form-control form-control-lg mt-3" id="data" name="data" type="file" >
                 <input type="submit" class="btn btn-primary w-100 mt-3" value="Frissítés">
 
-          </form>
+            </form>
 
-      </div>
+        </div>
     </div>
 </div>
 
