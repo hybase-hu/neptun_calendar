@@ -80,8 +80,8 @@ def calendar_view(request):
 
     try:
         with open((os.path.join(settings.MEDIA_ROOT, neptun_user.calendar.name)), 'r', encoding='ISO-8859-2') as csv:
-            content = csv.readlines()
-            content.next()
+            content = csv.readlines()[1:]
+
             for row in content:
                 csv_data = row.split(';')
                 try:
