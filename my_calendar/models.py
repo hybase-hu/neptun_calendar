@@ -1,6 +1,5 @@
 import datetime
 
-
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -16,14 +15,13 @@ class NeptunUser(models.Model):
 
 
 class NeptunClass:
-    def __init__(self,start,end,desc,local):
-        self.start =  datetime.datetime.strptime(start, '%Y.%m.%d. %H:%M:%S')
-        #self.start = start
-        self.end = datetime.datetime.strptime(end, '%Y.%m.%d. %H:%M:%S')
-        #self.end = end
+    def __init__(self, start, end, desc, local):
+        self.start = datetime.datetime.strptime(start, '%Y.%m.%d %H:%M')
+        # self.start = start
+        self.end = datetime.datetime.strptime(end, '%Y.%m.%d %H:%M')
+        # self.end = end
         self.desc = desc
         self.local = local
 
     def get_length(self):
         return (self.end - self.start).seconds / 60
-

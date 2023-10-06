@@ -88,7 +88,8 @@ def calendar_view(request):
                     c = NeptunClass(start=csv_data[0], end=csv_data[1], desc=csv_data[2], local=csv_data[3])
                     context.append(c)
                 except Exception as e:
-                    messages.warning(request, "Hiba történt egy adat feldolgozásában", e)
+                    messages.warning(request, "Hiba történt egy adat feldolgozásában "+e)
+
 
     except Exception as e:
         print(e)
